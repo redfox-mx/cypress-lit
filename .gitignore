@@ -1,0 +1,7 @@
+node_modules
+*.d.ts*
+index.js*
+*.js
+
+# cypress types
+!types.d.ts
