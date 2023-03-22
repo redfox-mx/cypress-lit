@@ -1,0 +1,35 @@
+{
+  "name": "cypress-ct-lit",
+  "version": "0.0.1",
+  "exports": {
+    "node": "./definition.js",
+    "default": "./index.js"
+  },
+  "scripts": {
+    "build": "npm run build:definition && npm run build:mount",
+    "build:mount": "tsc --project tsconfig.mount.json",
+    "build:definition": "tsc --project tsconfig.definition.json"
+  },
+  "types": "*.d.ts",
+  "files": [
+    "package.json",
+    "definition.js",
+    "index.js",
+    "definition.d.ts",
+    "index.d.ts",
+    "types.d.ts",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "@cypress/mount-utils": "^4.0.0"
+  },
+  "devDependencies": {
+    "cypress": "^12.7.0",
+    "typescript": "^4.9.5",
+    "lit": "^2.0.0"
+  },
+  "peerDependencies": {
+    "lit": "^2.0.0",
+    "cypress": ">=10.6.0"
+  }
+}
