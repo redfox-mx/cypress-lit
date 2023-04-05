@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="250" height="200" src="docs/lit.svg">
+  <img width="250" height="200" src="https://raw.githubusercontent.com/redfox-mx/cypress-lit/main/docs/lit.svg">
 </p>
 
 # Cypress Component Testing for Lit
