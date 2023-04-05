@@ -61,7 +61,7 @@ Optionally, this package brings custom types definitions. Add the following to `
   }
 }
 ```
-Usage notes
+## Usage notes
 
 You can now mount any html content with Lit in a component test, for example:
 

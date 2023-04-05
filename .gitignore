@@ -2,6 +2,7 @@ node_modules
 *.d.ts*
 index.js*
 *.js
+*.tsbuildinfo
 
 # cypress types
 !types.d.ts

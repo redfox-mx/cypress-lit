@@ -20,7 +20,8 @@
   "scripts": {
     "build": "npm run build:definition && npm run build:mount",
     "build:mount": "tsc --project tsconfig.mount.json",
-    "build:definition": "tsc --project tsconfig.definition.json"
+    "build:definition": "tsc --project tsconfig.definition.json",
+    "prepublishOnly": "npm run build"
   },
   "types": "*.d.ts",
   "files": [
@@ -30,7 +31,8 @@
     "definition.d.ts",
     "index.d.ts",
     "types.d.ts",
-    "LICENSE"
+    "LICENSE",
+    "README.md"
   ],
   "dependencies": {
     "@cypress/mount-utils": "^4.0.0"
