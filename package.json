@@ -1,6 +1,18 @@
 {
   "name": "cypress-ct-lit",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "description": "Cypress Component Testing for Lit and Web Components",
+  "keywords": [
+    "cypress",
+    "testing",
+    "lit",
+    "lit-element",
+    "LitElement",
+    "component",
+    "cypress-ct",
+    "cypress-ct-lit",
+    "component test"
+  ],
   "exports": {
     "node": "./definition.js",
     "default": "./index.js"
@@ -31,5 +43,11 @@
   "peerDependencies": {
     "lit": "^2.0.0",
     "cypress": ">=10.6.0"
-  }
+  },
+  "author": {
+    "name": "Diego Jesus Hernandez Gonzalez",
+    "aka": "redfox-mx",
+    "email": "hernandezdj98@outlook.com"
+  },
+  "repository": "https://github.com/redfox-mx/cypress-lit"
 }
