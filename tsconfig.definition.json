@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
     "composite": true,
     "target": "ES2015",
     "module": "CommonJS",
@@ -11,5 +12,5 @@
     "types": ["cypress"],
     "skipLibCheck": true
   },
-  "include": ["definition.ts"]
+  "include": ["src/definition.ts"]
 }

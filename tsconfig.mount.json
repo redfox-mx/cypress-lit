@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
     "composite": true,
     "target": "ES6",
     "module": "ES6",
@@ -8,7 +9,7 @@
     "lib": ["DOM", "ES6"],
     "esModuleInterop": true,
     "strict": true,
-    "types": ["cypress"]
+    "types": ["cypress"],
   },
-  "include": ["index.ts", "types.d.ts"]
+  "include": ["src/index.ts", "src/types.d.ts"]
 }
