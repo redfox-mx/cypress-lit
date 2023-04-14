@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./../dist/out-tsc",
+    "module": "commonjs",
+    "types": ["cypress-ct-lit/types", "cypress", "node"]
+  },
+  "include": [
+    "support/**/*.ts",
+    "../cypress.config.ts",
+    "../src/**/*.cy.ts",
+    "../**/*.d.ts"
+  ]
+}

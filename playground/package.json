@@ -1,0 +1,17 @@
+{
+  "name": "lit-playground",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "test": "cypress open --component"
+  },
+  "dependencies": {
+    "lit": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "cypress": "^12.8.1",
+    "cypress-ct-lit": "file:../dist",
+    "vite": "^4.2.1"
+  }
+}
