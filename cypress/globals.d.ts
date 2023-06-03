@@ -1,1 +1,5 @@
-/// <reference types='vite/client' />
+declare module '*.css' {
+  export const styles: import('lit').CSSResult
+  export default styles;
+}
+
