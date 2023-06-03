@@ -1,6 +1,6 @@
 {
   "name": "cypress-ct-lit",
-  "version": "0.1.0",
+  "version": "0.2.0-alpha.1",
   "description": "Cypress Component Testing for Lit and Web Components",
   "keywords": [
     "cypress",
@@ -14,33 +14,25 @@
     "component test"
   ],
   "exports": {
-    "node": "./definition.js",
-    "default": "./index.js"
+    "node": "./dist/definition.js",
+    "default": "./dist/index.js"
   },
   "scripts": {
     "build": "pnpm build:definition && pnpm build:mount",
     "build:mount": "tsc --project tsconfig.mount.json",
     "build:definition": "tsc --project tsconfig.definition.json",
-    "prepack": "node scripts/copy.mjs",
-    "prepublishOnly": "pnpm build"
+    "prepack": "pnpm build"
   },
   "types": "*.d.ts",
   "files": [
-    "package.json",
-    "definition.js",
-    "index.js",
-    "definition.d.ts",
-    "index.d.ts",
-    "types.d.ts",
-    "LICENSE",
-    "README.md"
+    "dist",
+    "types.d.ts"
   ],
   "dependencies": {
     "@cypress/mount-utils": "^4.0.0"
   },
   "devDependencies": {
     "cypress": "^12.8.1",
-    "glob": "^10.0.0",
     "lit": "^2.0.0",
     "typescript": "^4.9.5",
     "vite": "^4.2.1"

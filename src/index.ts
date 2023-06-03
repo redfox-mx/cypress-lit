@@ -1,30 +1,13 @@
-import { getContainerEl, setupHooks } from "@cypress/mount-utils";
-import { render, nothing, RenderOptions } from "lit";
-
-Cypress.on("run:start", () => {
-  if (Cypress.testingType !== "component") {
-    return;
-  }
-
-  Cypress.Commands.add("defineCustomElement", (name, component, options) => {
-    // Avoid double-registering a Web Component.
-    if (window.customElements.get(name)) {
-      return;
-    }
-
-    window.customElements.define(name, component, options);
-    Cypress.log({
-      name: 'define',
-      message: [`<${name} ... />`],
-    })
-  });
-});
+import { getContainerEl, setupHooks } from '@cypress/mount-utils';
+import { render, nothing, RenderOptions, TemplateResult } from 'lit';
 
 let dispose: () => void;
 
 function cleanup() {
   dispose?.();
 }
+
+export type Renderable = TemplateResult;
 
 export interface MountLitTemplateOptions {
   render: RenderOptions;
@@ -33,10 +16,12 @@ export interface MountLitTemplateOptions {
 
 export type MountOptions = Partial<MountLitTemplateOptions>;
 
-export function mount(
-  component: Parameters<typeof render>[0],
+export function mount<T extends keyof HTMLElementTagNameMap = any>(
+  component: Renderable,
   options: MountOptions = {}
-) {
+): Cypress.Chainable<JQuery<HTMLElementTagNameMap[T]>> {
+  cleanup();
+
   const root = getContainerEl();
   render(component, root, options.render);
 
@@ -44,14 +29,28 @@ export function mount(
     render(nothing, root);
   }
 
-  return cy.wait(0, { log: false }).then(() => {
-    if (options.log !== false) {
-      Cypress.log({
-        name: "mount",
-        message: "Mounted component",
-      });
-    }
-  });
+  return cy
+    .wrap(root, { log: false })
+    .wait(0, { log: false })
+    .children()
+    .first()
+    .then((element) => {
+      const name = element.prop("tagName").toLowerCase();
+
+      // safe cast for current html element
+      const el = document.getElementsByTagName<T>(name)[0];
+
+      if(options.log !== false) {
+        Cypress.log({
+          name: 'mount',
+          message: `<${name} ... />`
+        })
+        .snapshot('mounted')
+        .end()
+      }
+
+      return cy.wrap(el, { log: false })
+    })
 }
 
 setupHooks(cleanup);

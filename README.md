@@ -37,7 +37,7 @@ export default defineConfig({
 If you're using TypeScript, you may get a type error when setting the framework property. If so, you'll need to typecast it as any
 
 ```ts
-framework: 'cypress-ct-lit-element' as any,
+framework: 'cypress-ct-lit' as any,
 ```
 ## Adding mount Command
 
@@ -76,20 +76,6 @@ it('should display content', () => {
 })
 ```
 
-Optionally, you can use defineCustomElement command to register custom elements
-
-
-```ts
-import { html } from 'lit';
-import { AppComponent } from './app-component';
-
-it('should define custom element', () => {
-  cy.defineCustomElement('app-component', AppComponent)
-  cy.mount(html`<app-component></app-component>`)
-  cy.get('app-component');
-})
-```
-
 Or find content inside your web component
 
 ```ts
@@ -105,4 +91,4 @@ it('should render its children', () => {
 ```
 ## Special thanks
 
-[@kgroat](https://gitlab.com/kgroat) I use some of his assets like lit logo and copy some docs. I'm not so good at writing docs but his project offers a lot of information. See: [Cypress Lit Component Test Definition](https://gitlab.com/kgroat/cypress-ct-lit-element) for more info ❤️
+[@kgroat](https://gitlab.com/kgroat) I use some of his assets like lit logo and copy some docs. I'm not so good writing docs but his project offers a lot of information. See: [Cypress Lit Component Test Definition](https://gitlab.com/kgroat/cypress-ct-lit-element) for more info ❤️
