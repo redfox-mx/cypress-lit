@@ -56,7 +56,7 @@ Optionally, this package brings custom types definitions. Add the following to `
     // more compiler options...
     "types": [
       "cypress",
-      "cypress-ct-lit/types"
+      "cypress-ct-lit"
     ]
   }
 }

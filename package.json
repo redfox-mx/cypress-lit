@@ -1,6 +1,6 @@
 {
   "name": "cypress-ct-lit",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Cypress Component Testing for Lit and Web Components",
   "keywords": [
     "cypress",
@@ -26,10 +26,7 @@
     "prepack": "pnpm build"
   },
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist",
-    "types.d.ts"
-  ],
+  "files": ["dist"],
   "dependencies": {
     "@cypress/mount-utils": "^4.0.0"
   },

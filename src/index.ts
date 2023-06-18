@@ -32,8 +32,8 @@ export function mount<T extends keyof HTMLElementTagNameMap = any>(
   return cy
     .wrap(root, { log: false })
     .wait(0, { log: false })
-    .children()
-    .first()
+    .children({log: false })
+    .first({log: false })
     .then((element) => {
       const name = element.prop("tagName").toLowerCase();
 
@@ -43,6 +43,7 @@ export function mount<T extends keyof HTMLElementTagNameMap = any>(
       if(options.log !== false) {
         Cypress.log({
           name: 'mount',
+          displayName: 'mount',
           message: `<${name} ... />`
         })
         .snapshot('mounted')
@@ -54,3 +55,16 @@ export function mount<T extends keyof HTMLElementTagNameMap = any>(
 }
 
 setupHooks(cleanup);
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      /**
+       * Mount your component into Cypress sandbox
+       * @param component content to render by lit-html render function
+       * @param options render options for custom rendering
+       */
+      mount: typeof mount;
+    }
+  }
+}
