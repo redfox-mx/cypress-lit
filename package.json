@@ -34,7 +34,7 @@
     "cypress": "^12.8.1",
     "lit": "^2.0.0",
     "typescript": "^4.9.5",
-    "vite": "4.1.4",
+    "vite": "4.4.1",
     "vite-plugin-lit-css": "^0.0.5"
   },
   "peerDependencies": {
