@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@cypress/mount-utils':
     specifier: ^4.0.0
@@ -19,8 +23,8 @@ devDependencies:
     specifier: 4.1.4
     version: 4.1.4
   vite-plugin-lit-css:
-    specifier: ^0.0.5
-    version: 0.0.5(lit@2.0.0)(vite@4.1.4)
+    specifier: ^0.1.1
+    version: 0.1.1(lit@2.0.0)(vite@4.1.4)
 
 packages:
 
@@ -1441,8 +1445,8 @@ packages:
       extsprintf: 1.3.0
     dev: true
 
-  /vite-plugin-lit-css@0.0.5(lit@2.0.0)(vite@4.1.4):
-    resolution: {integrity: sha512-CVJJGd57KjRS6rhdd3lMLH2v5v2QD8iKFCs5mJep5SYcnh60U1cbqSBBr1m+CN0VllFO9SQDlsVjBDkc/90NZQ==}
+  /vite-plugin-lit-css@0.1.1(lit@2.0.0)(vite@4.1.4):
+    resolution: {integrity: sha512-Jc0MRyB2UuGLirp+RsmOZNgP0Nj3+Tf/nKOm1cllAfdRCABS9P9WYuqyaM/r8rwl2lCZZNPjeCNpAiWqlu1Ysg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       lit: ^2.0.0
