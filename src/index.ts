@@ -1,5 +1,5 @@
 import { getContainerEl, setupHooks } from '@cypress/mount-utils';
-import { render, nothing, RenderOptions, TemplateResult } from 'lit';
+import { render, nothing, RenderOptions, HTMLTemplateResult } from 'lit';
 
 let dispose: () => void;
 
@@ -7,7 +7,7 @@ function cleanup() {
   dispose?.();
 }
 
-export type Renderable = TemplateResult;
+export type Renderable = HTMLTemplateResult;
 
 export interface MountLitTemplateOptions {
   render: RenderOptions;
