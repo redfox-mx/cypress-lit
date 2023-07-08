@@ -1,12 +1,10 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-const tagName = 'app-counter';
-
-@customElement(tagName)
+@customElement('app-counter')
 export class AppCounter extends LitElement {
 
-  @property({ type: Number, attribute: true })
+  @property({ type: Number })
   value = 0;
 
   increment() {
@@ -29,6 +27,6 @@ export class AppCounter extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    [tagName]: AppCounter;
+    'app-counter': AppCounter;
   }
 }
