@@ -8,7 +8,8 @@
     "lib": ["DOM", "ES6"],
     "esModuleInterop": true,
     "strict": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false
   },
   "include": ["cypress/**/*.ts", "cypress.config.ts"]
 }
