@@ -5,6 +5,7 @@ export default defineConfig({
     devServer: {
       framework: 'cypress-ct-lit' as any,
       bundler: 'vite',
+      viteConfig: {}
     }
   }
 })
