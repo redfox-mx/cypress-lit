@@ -8,14 +8,14 @@ describe('mount', () => {
     cy.get('app-counter').should('exist')
   })
 
-  it('shold return chainable reference to element', () => {
+  it('should return chainable reference to element', () => {
     const counter = cy.mount<'app-counter'>(html`<app-counter></app-counter>`)
     counter
       .shadow()
       .contains('Count is 0')
   })
 
-  it('shuld clean DOM if mount is called more times', () => {
+  it('should clean DOM if mount is called more than one time', () => {
     cy.mount(html`<div id="mount1">mount 1</div>`)
     cy.mount(html`<div id="mount2">mount 2</div>`)
 
