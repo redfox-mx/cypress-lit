@@ -34,13 +34,13 @@
   },
   "devDependencies": {
     "cypress": "^12.8.1",
-    "lit": "^2.0.0",
+    "lit": "^3.0.1",
     "typescript": "^5.1.6",
     "vite": "4.1.4"
   },
   "peerDependencies": {
     "cypress": ">=10.6.0",
-    "lit": "^2.0.0"
+    "lit": "^3.0.1"
   },
   "author": {
     "name": "Diego Jesus Hernandez Gonzalez",
