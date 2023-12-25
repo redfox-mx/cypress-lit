@@ -1,6 +1,6 @@
 {
   "name": "cypress-ct-lit",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Cypress Component Testing for Lit and Web Components",
   "keywords": [
     "cypress",
@@ -34,13 +34,13 @@
   },
   "devDependencies": {
     "cypress": "^13.0.0",
-    "lit": "^2.0.0",
+    "lit": "^3.0.0",
     "typescript": "^5.1.6",
     "vite": "4.5.0"
   },
   "peerDependencies": {
     "cypress": ">=10.6.0",
-    "lit": "^2.0.0"
+    "lit": "^2.0.0 || ^3.0.0"
   },
   "author": {
     "name": "Diego Jesus Hernandez Gonzalez",
