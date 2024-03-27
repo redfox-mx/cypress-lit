@@ -6,7 +6,7 @@ const dep: Cypress.CypressComponentDependency = {
   package: 'lit',
   installer: 'lit',
   description: "Lit is a simple library for building fast, lightweight web components.",
-  minVersion: '^2.0.0'
+  minVersion: '^2.0.0 || ^3.0.0'
 };
 
 export default defineComponentFramework({
