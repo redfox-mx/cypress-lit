@@ -1,8 +1,8 @@
+# Cypress Component Testing for Lit
+
 <p align="center">
   <img width="250" height="200" src="https://raw.githubusercontent.com/redfox-mx/cypress-lit/main/docs/lit.svg">
 </p>
-
-# Cypress Component Testing for Lit
 
 > "Use all the power of cypress component testing with Lit and web components. ⚡"
 
@@ -34,7 +34,7 @@ export default defineConfig({
   }
 })
 ```
-If you're using TypeScript, you may get a type error when setting the framework property. If so, you'll need to typecast it as any
+If you're using TypeScript, you may get a type error when setting the framework property. If so, you'll need to typecast it as `any`
 
 ```ts
 framework: 'cypress-ct-lit' as any,
@@ -48,7 +48,7 @@ import { mount } from 'cypress-ct-lit'
 
 Cypress.Commands.add('mount', mount)
 ```
-Optionally, this package brings custom types definitions. Add the following to `tsconfig.json` or `jsconfig.json` in your project.
+Optionally, this package brings its custom types definitions. Add the following to `tsconfig.json` or `jsconfig.json` in your project.
 
 ```json
 {
@@ -66,29 +66,43 @@ Optionally, this package brings custom types definitions. Add the following to `
 You can now mount any html content with Lit in a component test, for example:
 
 ```ts
-import { html } from 'lit'
+import { html } from 'lit';
 
 it('should display content', () => {
   const text = 'I will show up in the test'
-  cy.mount(html`<div id='content'>${text}</div>`)
+  cy.mount(html`<div id='content'>${text}</div>`);
 
-  cy.get('#content').should('contain.text', text)
+  cy.get('#content').should('contain.text', text);
 })
 ```
 
 Or find content inside your web component
 
 ```ts
-import { html } from 'lit'
+import 'path/to/my-element';
+import { html } from 'lit';
 
 it('should render its children', () => {
-  cy.mount(html`<my-element></my-element>`)
+  cy.mount(html`<my-element></my-element>`);
 
   cy.get('my-element')
     .shadow().find('.my-part')
     .should('exist')
 })
 ```
-## Special thanks
+For more examples and basic usages see ´cypress/component´ examples
 
-[@kgroat](https://gitlab.com/kgroat) I use some of his assets like lit logo and copy some docs. I'm not so good writing docs but his project offers a lot of information. See: [Cypress Lit Component Test Definition](https://gitlab.com/kgroat/cypress-ct-lit-element) for more info ❤️
+> __Note__: You may prefer use `includeShadowDom` option to avoid write `shadow()` command on every test.
+>
+>```typescript
+> export default defineConfig({
+>  includeShadowDom: true,
+>  component: {
+>    devServer: {
+>      framework: 'cypress-ct-lit',
+>      // more config here
+>    }
+>  }
+>})
+>```
+
