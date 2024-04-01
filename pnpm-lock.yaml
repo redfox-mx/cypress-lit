@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@cypress/mount-utils':
     specifier: ^4.0.0
-    version: 4.0.0
+    version: 4.1.0
 
 devDependencies:
   cypress:
@@ -32,8 +32,8 @@ packages:
     dev: true
     optional: true
 
-  /@cypress/mount-utils@4.0.0:
-    resolution: {integrity: sha512-4w8WZpOALz5+vhJmPfh2HkT4NMsRP2DgVqSXxXu46GR5yUGfqJ0+WgUrmVuujtKKY6n1mDiO1L4AfZ+4bsEYGQ==}
+  /@cypress/mount-utils@4.1.0:
+    resolution: {integrity: sha512-RDap/nVsIJIoJSBcceGdB2RFOgB1qPwJqdFrpwu7WIuMbaBhUASvZ1uYseE5NvpPsIx+sUjysGXeBG1BXNjUHA==}
     dev: false
 
   /@cypress/request@3.0.1:
