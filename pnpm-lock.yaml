@@ -12,7 +12,7 @@ dependencies:
 devDependencies:
   cypress:
     specifier: ^13.0.0
-    version: 13.6.6
+    version: 13.8.1
   lit:
     specifier: ^3.0.0
     version: 3.1.2
@@ -531,8 +531,8 @@ packages:
       which: 2.0.2
     dev: true
 
-  /cypress@13.6.6:
-    resolution: {integrity: sha512-S+2S9S94611hXimH9a3EAYt81QM913ZVA03pUmGDfLTFa5gyp85NJ8dJGSlEAEmyRsYkioS1TtnWtbv/Fzt11A==}
+  /cypress@13.8.1:
+    resolution: {integrity: sha512-Uk6ovhRbTg6FmXjeZW/TkbRM07KPtvM5gah1BIMp4Y2s+i/NMxgaLw0+PbYTOdw1+egE0FP3mWRiGcRkjjmhzA==}
     engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
     hasBin: true
     requiresBuild: true
