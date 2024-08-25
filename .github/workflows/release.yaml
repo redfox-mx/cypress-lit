@@ -21,9 +21,6 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
 
-      # Set up GitHub Actions caching for Wireit.
-      - uses: google/wireit@setup-github-actions-caching/v2
-
       - name: Install
         run: npm ci
 
