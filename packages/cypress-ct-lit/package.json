@@ -1,0 +1,79 @@
+{
+  "name": "cypress-ct-lit",
+  "version": "0.4.1",
+  "description": "Cypress Component Testing for Lit and Web Components",
+  "type": "module",
+  "keywords": [
+    "cypress",
+    "testing",
+    "lit",
+    "lit-element",
+    "LitElement",
+    "component",
+    "cypress-ct",
+    "cypress-ct-lit",
+    "component test"
+  ],
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "node": "./dist/definition.js",
+    "default": "./dist/index.bundle.js"
+  },
+  "scripts": {
+    "build:mount": "wireit",
+    "build:definition": "wireit",
+    "bundle": "wireit",
+    "build": "wireit",
+    "prepack": "npm run build"
+  },
+  "wireit": {
+    "build:definition": {
+      "command": "tsc --project tsconfig.definition.json",
+      "files": [
+        "tsconfig.definition.json",
+        "src/definition.ts"
+      ],
+      "output": ["dist/definition.{d.ts,js}"]
+    },
+    "build:mount": {
+      "command": "tsc --project tsconfig.mount.json",
+      "files": [
+        "tsconfig.mount.json",
+        "src/index.ts"
+      ],
+      "output": ["dist/index.{d.ts,js}"]
+    },
+    "bundle": {
+      "dependencies": ["build:mount"],
+      "files": [
+        "rollup.config.js"
+      ],
+      "command": "rollup -c",
+      "output": ["dist/index.bundle.js"]
+    },
+    "build": {
+      "dependencies": [
+        "build:definition",
+        "bundle"
+      ]
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@cypress/mount-utils": "^4.0.0"
+  },
+  "peerDependencies": {
+    "cypress": ">=10.6.0",
+    "lit": "^2.0.0 || ^3.0.0"
+  },
+  "author": {
+    "name": "Diego Jesus Hernandez Gonzalez",
+    "aka": "redfox-mx",
+    "email": "hernandezdj98@outlook.com"
+  },
+  "repository": "https://github.com/redfox-mx/cypress-lit",
+  "homepage": "https://github.com/redfox-mx/cypress-lit/tree/develop/packages/cypress-ct-lit"
+}

@@ -1,13 +1,12 @@
 import { getContainerEl, setupHooks } from '@cypress/mount-utils';
-import { render, nothing, RenderOptions, HTMLTemplateResult } from 'lit';
+import { render, nothing, RenderOptions, html } from 'lit';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 let dispose: () => void;
 
 function cleanup() {
   dispose?.();
 }
-
-export type Renderable = HTMLTemplateResult;
 
 export interface MountLitTemplateOptions {
   render: RenderOptions;
@@ -17,13 +16,14 @@ export interface MountLitTemplateOptions {
 export type MountOptions = Partial<MountLitTemplateOptions>;
 
 export function mount<T extends keyof HTMLElementTagNameMap = any>(
-  component: Renderable,
+  template: unknown,
   options: MountOptions = {}
 ): Cypress.Chainable<JQuery<HTMLElementTagNameMap[T]>> {
   cleanup();
 
   const root = getContainerEl();
-  render(component, root, options.render);
+  const value = typeof template === 'string' ? html`${unsafeHTML(template)}` : template;
+  render(value, root, options.render);
 
   dispose = () => {
     render(nothing, root);
@@ -60,8 +60,8 @@ declare global {
   namespace Cypress {
     interface Chainable {
       /**
-       * Mount your component into Cypress sandbox
-       * @param component content to render by lit-html render function
+       * Mount your template/component into Cypress sandbox
+       * @param template
        * @param options render options for custom rendering
        */
       mount: typeof mount;
