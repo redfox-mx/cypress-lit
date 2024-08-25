@@ -1,51 +1,33 @@
 {
-  "name": "cypress-ct-lit",
-  "version": "0.4.1",
+  "name": "cypress-ct-lit-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "description": "Cypress Component Testing for Lit and Web Components",
-  "keywords": [
-    "cypress",
-    "testing",
-    "lit",
-    "lit-element",
-    "LitElement",
-    "component",
-    "cypress-ct",
-    "cypress-ct-lit",
-    "component test"
-  ],
-  "exports": {
-    "node": "./dist/definition.js",
-    "default": "./dist/index.js"
-  },
   "scripts": {
-    "build": "pnpm build:definition && pnpm build:mount",
-    "build:mount": "tsc --project tsconfig.mount.json",
-    "build:definition": "tsc --project tsconfig.definition.json",
-    "dev": "cypress open --component",
-    "test": "cypress run --component",
-    "prepack": "pnpm build"
+    "build": "wireit",
+    "test": "wireit"
   },
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "dependencies": {
-    "@cypress/mount-utils": "^4.0.0"
+  "wireit": {
+    "build": {
+      "dependencies": [
+        "./packages/cypress-ct-lit:build"
+      ]
+    },
+    "test": {
+      "dependencies": [
+        "./packages/playground:test"
+      ]
+    }
   },
   "devDependencies": {
-    "cypress": "^13.0.0",
-    "lit": "^3.0.0",
+    "@rollup/plugin-node-resolve": "15.2.3",
+    "rollup": "^4.21.0",
     "typescript": "^5.1.6",
-    "vite": "4.5.0"
+    "wireit": "^0.14.8"
   },
-  "peerDependencies": {
-    "cypress": ">=10.6.0",
-    "lit": "^2.0.0 || ^3.0.0"
-  },
-  "author": {
-    "name": "Diego Jesus Hernandez Gonzalez",
-    "aka": "redfox-mx",
-    "email": "hernandezdj98@outlook.com"
-  },
-  "repository": "https://github.com/redfox-mx/cypress-lit"
+  "dependencies": {
+    "@changesets/cli": "^2.27.7"
+  }
 }
