@@ -1,0 +1,23 @@
+{
+  "name": "playground",
+  "private": true,
+  "description": "Cypress Component Testing for Lit and Web Components",
+  "scripts": {
+    "dev": "cypress open --component",
+    "test": "wireit"
+  },
+  "wireit": {
+    "test": {
+      "dependencies": ["../cypress-ct-lit:build"],
+      "command": "cypress run --component"
+    }
+  },
+  "dependencies": {
+    "lit": "^3.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.2",
+    "cypress": "^13.13.3",
+    "cypress-ct-lit": "*"
+  }
+}
