@@ -8,7 +8,9 @@
   },
   "wireit": {
     "test": {
-      "dependencies": ["../cypress-ct-lit:build"],
+      "dependencies": [
+        "../cypress-ct-lit:build"
+      ],
       "command": "cypress run --component"
     }
   },
