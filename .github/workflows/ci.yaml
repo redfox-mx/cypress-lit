@@ -1,23 +1,26 @@
-name: ci
+name: Tests
 on:
   push:
     branches:
-      - 'main'
-      - 'develop'
+      - main
   pull_request:
-  workflow_dispatch:
 
 jobs:
-  cypress-run:
-    runs-on: ubuntu-22.04
+  tests:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          version: 8.6.2
-      - name: Run Test
-        uses: cypress-io/github-action@v5
-        with:
-          component: true
+          node-version-file: '.nvmrc'
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      # Set up GitHub Actions caching for Wireit.
+      - uses: google/wireit@setup-github-actions-caching/v2
+
+      - name: Install
+        run: npm ci
+
+      - name: Test
+        run: npm run test
