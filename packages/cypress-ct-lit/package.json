@@ -26,8 +26,7 @@
     "build:mount": "wireit",
     "build:definition": "wireit",
     "bundle": "wireit",
-    "build": "wireit",
-    "prepack": "npm run build"
+    "build": "wireit"
   },
   "wireit": {
     "build:definition": {
