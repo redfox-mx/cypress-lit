@@ -1,6 +1,6 @@
 {
   "name": "cypress-ct-lit",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Cypress Component Testing for Lit and Web Components",
   "type": "module",
   "keywords": [
@@ -35,7 +35,9 @@
         "tsconfig.definition.json",
         "src/definition.ts"
       ],
-      "output": ["dist/definition.{d.ts,js}"]
+      "output": [
+        "dist/definition.{d.ts,js}"
+      ]
     },
     "build:mount": {
       "command": "tsc --project tsconfig.mount.json",
@@ -43,15 +45,21 @@
         "tsconfig.mount.json",
         "src/index.ts"
       ],
-      "output": ["dist/index.{d.ts,js}"]
+      "output": [
+        "dist/index.{d.ts,js}"
+      ]
     },
     "bundle": {
-      "dependencies": ["build:mount"],
+      "dependencies": [
+        "build:mount"
+      ],
       "files": [
         "rollup.config.js"
       ],
       "command": "rollup -c",
-      "output": ["dist/index.bundle.js"]
+      "output": [
+        "dist/index.bundle.js"
+      ]
     },
     "build": {
       "dependencies": [
