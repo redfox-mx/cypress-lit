@@ -1,5 +1,5 @@
 import { getContainerEl, setupHooks } from '@cypress/mount-utils';
-import { render, nothing, RenderOptions, html } from 'lit';
+import { render, nothing, type RenderOptions, html, type HTMLTemplateResult } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 let dispose: () => void;
@@ -16,7 +16,7 @@ export interface MountLitTemplateOptions {
 export type MountOptions = Partial<MountLitTemplateOptions>;
 
 export function mount<T extends keyof HTMLElementTagNameMap = any>(
-  template: unknown,
+  template: HTMLTemplateResult | string,
   options: MountOptions = {}
 ): Cypress.Chainable<JQuery<HTMLElementTagNameMap[T]>> {
   cleanup();
