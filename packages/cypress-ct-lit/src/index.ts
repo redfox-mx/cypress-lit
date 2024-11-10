@@ -55,16 +55,3 @@ export function mount<T extends keyof HTMLElementTagNameMap = any>(
 }
 
 setupHooks(cleanup);
-
-declare global {
-  namespace Cypress {
-    interface Chainable {
-      /**
-       * Mount your template/component into Cypress sandbox
-       * @param template
-       * @param options render options for custom rendering
-       */
-      mount: typeof mount;
-    }
-  }
-}

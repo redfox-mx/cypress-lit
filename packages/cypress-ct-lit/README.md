@@ -42,25 +42,25 @@ framework: 'cypress-ct-lit' as any,
 ```
 ## Adding mount Command
 
-Next, add the following lines to your `component.{js.ts}`
+Next, add the following lines to your `component.ts`
 
 ```ts
 import { mount } from 'cypress-ct-lit'
 
-Cypress.Commands.add('mount', mount)
-```
-Optionally, this package brings its custom types definitions. Add the following to `tsconfig.json` or `jsconfig.json` in your project.
-
-```json
-{
-  "compilerOptions": {
-    // more compiler options...
-    "types": [
-      "cypress",
-      "cypress-ct-lit"
-    ]
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      /**
+       * Mount your template/component into Cypress sandbox
+       * @param template
+       * @param options render options for custom rendering
+       */
+      mount: typeof mount;
+    }
   }
 }
+
+Cypress.Commands.add('mount', mount)
 ```
 ## Usage notes
 
