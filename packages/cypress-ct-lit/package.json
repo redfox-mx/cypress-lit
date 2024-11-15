@@ -19,8 +19,11 @@
     "dist"
   ],
   "exports": {
-    "node": "./dist/definition.js",
-    "default": "./dist/index.bundle.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "node": "./dist/definition.js",
+      "default": "./dist/index.bundle.js"
+    }
   },
   "scripts": {
     "build:mount": "wireit",
