@@ -1,6 +1,6 @@
 {
   "name": "cypress-ct-lit",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "Cypress Component Testing for Lit and Web Components",
   "type": "module",
   "keywords": [
