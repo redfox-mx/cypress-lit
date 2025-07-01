@@ -27,6 +27,6 @@
     "@rollup/plugin-node-resolve": "15.2.3",
     "rollup": "^4.21.0",
     "typescript": "^5.1.6",
-    "wireit": "^0.14.8"
+    "wireit": "^0.14.12"
   }
 }
